@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Quiz 2</title>
+</head>
+<body>
+    <div>
+        <input id= "inputTareas"type="text" placeholder="Descripción de la tarea">
+    </div>
+    <button id = "btnTarea">Nueva Tarea</button>
+
+    <div id= "contenedor">
+
+        <div id ="todo">
+            <h1>To do</h1>
+            <div id="TodoContainer"></div>
+        </div>
+        <div id = "doing">
+            <h1>Doing</h1>
+        </div>
+        <div id="done">
+            <h1>Done</h1>
+        </div>
+
+    </div>
+</body>
+</html>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBTMBWkieakODooCBBc3wGeZpZmH9w6T10",
+    authDomain: "quiz2-8d26e.firebaseapp.com",
+    databaseURL: "https://quiz2-8d26e.firebaseio.com",
+    projectId: "quiz2-8d26e",
+    storageBucket: "quiz2-8d26e.appspot.com",
+    messagingSenderId: "1028525521577",
+    appId: "1:1028525521577:web:7c4beeebec53560fa507b8"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+<script src="js/ToDo.js"></script>
+<script src="js/index.js"></script>

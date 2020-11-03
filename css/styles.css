@@ -1,0 +1,17 @@
+#contenedor{
+
+    display: flex;
+    flex-direction: row;
+}
+
+#contenedor *{
+
+    padding-right: 30px;
+}
+.contenedortodos {
+
+    background-color:lightgray;
+    margin: 10px;
+    padding: 20px;
+
+}
