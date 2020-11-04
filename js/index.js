@@ -24,7 +24,7 @@ database.ref("Tareas/Doing").on('value',function(data){
     data.forEach(c=>{
         let valor = c.val();
         let tempTarea= new ToDo(valor)
-        containerDoing.appendChild(tempTarea.renderDoing())
+        containerDoing.appendChild(tempTarea.render())
 
     })
 
@@ -36,7 +36,7 @@ database.ref("Tareas/Done").on('value',function(data){
     data.forEach(c=>{
         let valor = c.val();
         let tempTarea= new ToDo(valor)
-        containerDone.appendChild(tempTarea.renderDone())
+        containerDone.appendChild(tempTarea.render())
 
     })
 
@@ -49,7 +49,8 @@ btnTarea.addEventListener("click",()=>{
 
     let todo={
         id:reference.key,
-        textoTarea:inputTareas.value
+        textoTarea:inputTareas.value,
+        estado: "ToDo"
     }
     reference.set(todo);
 })
