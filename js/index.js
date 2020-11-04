@@ -2,6 +2,8 @@ const database = firebase.database();
 const inputTareas = document.getElementById("inputTareas");
 const btnTarea = document.getElementById("btnTarea");
 const containerTodo = document.getElementById("TodoContainer")
+const containerDoing = document.getElementById("DoingContainer")
+const containerDone= document.getElementById("DoneContainer");
 
 //To-Do
 database.ref("Tareas/ToDo").on('value',function(data){
@@ -15,6 +17,31 @@ database.ref("Tareas/ToDo").on('value',function(data){
     })
 
 })
+
+database.ref("Tareas/Doing").on('value',function(data){
+
+    containerDoing.innerHTML=""
+    data.forEach(c=>{
+        let valor = c.val();
+        let tempTarea= new ToDo(valor)
+        containerDoing.appendChild(tempTarea.renderDoing())
+
+    })
+
+})
+
+database.ref("Tareas/Done").on('value',function(data){
+
+    containerDone.innerHTML=""
+    data.forEach(c=>{
+        let valor = c.val();
+        let tempTarea= new ToDo(valor)
+        containerDone.appendChild(tempTarea.renderDone())
+
+    })
+
+})
+
 
 btnTarea.addEventListener("click",()=>{
 
