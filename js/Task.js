@@ -1,8 +1,8 @@
-class ToDo {
+class Task {
 
 
-    constructor(todo) {
-        this.todo = todo;
+    constructor(task) {
+        this.task = task;
     }
 
      
@@ -11,19 +11,23 @@ class ToDo {
         let d = new Date()
         let date = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
         let btnEliminar = document.createElement("button");
-        btnEliminar.innerHTML = "Borrar"
+        btnEliminar.innerHTML = "x"
+        btnEliminar.className="btnEliminar"
         let btnSubir = document.createElement("button");
-        btnSubir.innerHTML = "Subir"
+        btnSubir.innerHTML = "↑"
+        btnSubir.className="btnSubir"
         let btnBajar = document.createElement("button");
-        btnBajar.innerHTML = "Bajar"
+        btnBajar.innerHTML = "↓"
+        btnBajar.className="btnBajar"
         let component = document.createElement("div");
-        component.className = "contenedortodos"
+        component.className = "tarjeta"
         let fecha = document.createElement("div");
         fecha.innerHTML = date
         let textotodo = document.createElement("div");
-        textotodo.innerHTML = this.todo.textoTarea;
+        textotodo.innerHTML = this.task.textoTarea;
 
-        switch (this.todo.estado) {
+        
+        switch (this.task.estado) {
             case 'ToDo':
                 component.appendChild(btnEliminar)
                 component.appendChild(fecha)
@@ -52,22 +56,22 @@ class ToDo {
 
         btnSubir.addEventListener("click", ()=>{
 
-            switch (this.todo.estado) {
+            switch (this.task.estado) {
 
                 case "ToDo":
                     console.log("okay")
                     
-                    database.ref("Tareas/ToDo/" + this.todo.id).set(null)
-                    this.todo.estado = "Doing"
-                    database.ref("Tareas/Doing/" + this.todo.id).set(this.todo);
+                    database.ref("Tareas/ToDo/" + this.task.id).set(null)
+                    this.task.estado = "Doing"
+                    database.ref("Tareas/Doing/" + this.task.id).set(this.task);
     
                     break;
     
                 case "Doing":
 
-                    database.ref("Tareas/Doing/" + this.todo.id).set(null)
-                    this.todo.estado = "Done"
-                    database.ref("Tareas/Done/" + this.todo.id).set(this.todo);
+                    database.ref("Tareas/Doing/" + this.task.id).set(null)
+                    this.task.estado = "Done"
+                    database.ref("Tareas/Done/" + this.task.id).set(this.task);
                     break;
             }
 
@@ -75,28 +79,28 @@ class ToDo {
         btnEliminar.addEventListener("click", () => {
 
             
-            database.ref("Tareas/" + this.todo.estado + "/" + this.todo.id).set(null)
+            database.ref("Tareas/" + this.task.estado + "/" + this.task.id).set(null)
 
 
         })
 
         btnBajar.addEventListener("click", () => {
 
-            switch (this.todo.estado) {
+            switch (this.task.estado) {
 
                 case "Doing":
                     
-                    database.ref("Tareas/Doing/" + this.todo.id).set(null)
-                    this.todo.estado = "ToDo"
-                    database.ref("Tareas/ToDo/" + this.todo.id).set(this.todo);
+                    database.ref("Tareas/Doing/" + this.task.id).set(null)
+                    this.task.estado = "ToDo"
+                    database.ref("Tareas/ToDo/" + this.task.id).set(this.task);
     
                     break;
     
                 case "Done":
 
-                    database.ref("Tareas/Done/" + this.todo.id).set(null)
-                    this.todo.estado = "Doing"
-                    database.ref("Tareas/Doing/" + this.todo.id).set(this.todo);
+                    database.ref("Tareas/Done/" + this.task.id).set(null)
+                    this.task.estado = "Doing"
+                    database.ref("Tareas/Doing/" + this.task.id).set(this.task);
                     break;
             }   
         })

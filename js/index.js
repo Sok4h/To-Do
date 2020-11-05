@@ -11,7 +11,7 @@ database.ref("Tareas/ToDo").on('value',function(data){
     containerTodo.innerHTML=""
     data.forEach(c=>{
         let valor = c.val();
-        let tempTarea= new ToDo(valor)
+        let tempTarea= new Task(valor)
         containerTodo.appendChild(tempTarea.render())
 
     })
@@ -23,7 +23,7 @@ database.ref("Tareas/Doing").on('value',function(data){
     containerDoing.innerHTML=""
     data.forEach(c=>{
         let valor = c.val();
-        let tempTarea= new ToDo(valor)
+        let tempTarea= new Task(valor)
         containerDoing.appendChild(tempTarea.render())
 
     })
@@ -35,7 +35,7 @@ database.ref("Tareas/Done").on('value',function(data){
     containerDone.innerHTML=""
     data.forEach(c=>{
         let valor = c.val();
-        let tempTarea= new ToDo(valor)
+        let tempTarea= new Task(valor)
         containerDone.appendChild(tempTarea.render())
 
     })
@@ -43,14 +43,14 @@ database.ref("Tareas/Done").on('value',function(data){
 })
 
 
-btnTarea.addEventListener("click",()=>{
+btnTarea.addEventListener("click",()=>{     
 
     let reference=database.ref("Tareas/ToDo").push();
 
-    let todo={
+    let tarea={
         id:reference.key,
         textoTarea:inputTareas.value,
         estado: "ToDo"
     }
-    reference.set(todo);
+    reference.set(tarea);
 })

@@ -7,26 +7,27 @@
     <title>Quiz 2</title>
 </head>
 <body>
-    <div>
+    <header>
         <input id= "inputTareas"type="text" placeholder="Descripción de la tarea">
-    </div>
-    <button id = "btnTarea">Nueva Tarea</button>
+        <button id = "btnTarea">Nueva Tarea</button>
+    </header>
+    
 
     <div id= "contenedor">
 
         <div id ="todo">
             <h1>To do</h1>
-            <div class="Contenedor"id="TodoContainer"></div>    
+            <div class="Lista"id="TodoContainer"></div>    
         </div>
         
         <div id = "doing">
             <h1>Doing</h1>
-            <div id="DoingContainer"></div>
+            <div class="Lista" id="DoingContainer"></div>
 
         </div>
         <div id="done">
             <h1>Done</h1>
-            <div id="DoneContainer"></div>
+            <div class="Lista" id="DoneContainer"></div>
 
         </div>
 
@@ -54,5 +55,5 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
 </script>
-<script src="js/ToDo.js"></script>
+<script src="js/Task.js"></script>
 <script src="js/index.js"></script>
