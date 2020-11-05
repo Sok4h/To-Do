@@ -21,7 +21,7 @@ class Task {
         btnBajar.className="btnBajar"
         let component = document.createElement("div");
         component.className = "tarjeta"
-        let fecha = document.createElement("div");
+        let fecha = document.createElement("p");
         fecha.innerHTML = date
         let textotodo = document.createElement("div");
         textotodo.innerHTML = this.task.textoTarea;

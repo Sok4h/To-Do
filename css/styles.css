@@ -36,9 +36,10 @@ input{
     width: 160px;
    
 }
-#todo{
+.tarjeta p{
 
-    
+    font-size: 12px;
+
 }
 h1{
 
